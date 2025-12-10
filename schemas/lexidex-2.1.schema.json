@@ -1,0 +1,121 @@
+{
+  "$id": "https://stashkit.dev/schemas/lexidex-2.1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LexiDex Schema v2.1",
+  "type": "object",
+  "required": [
+    "dex_identity",
+    "dex_purpose",
+    "llm_guidance",
+    "ontology_core"
+  ],
+  "properties": {
+    "dex_identity": {
+      "type": "object",
+      "required": [
+        "name",
+        "version",
+        "build_profile",
+        "content_hash"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "build_profile": {
+          "type": "string"
+        },
+        "build_timestamp": {
+          "type": "string"
+        },
+        "content_hash": {
+          "type": "string"
+        }
+      }
+    },
+    "dex_purpose": {
+      "type": "object",
+      "required": [
+        "intended_use",
+        "completeness",
+        "canonical_truth"
+      ],
+      "properties": {
+        "intended_use": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "completeness": {
+          "type": "string"
+        },
+        "canonical_truth": {
+          "type": "boolean"
+        }
+      }
+    },
+    "llm_guidance": {
+      "type": "object",
+      "properties": {
+        "core_sections": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "optional_sections": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "heavy_sections": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ignore_when_context_below": {
+          "type": "object"
+        },
+        "rules": {
+          "type": "object"
+        },
+        "_llm_notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ontology_core": {
+      "type": "object",
+      "required": [
+        "roots",
+        "nodes"
+      ],
+      "properties": {
+        "roots": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "nodes": {
+          "type": "object"
+        }
+      }
+    },
+    "ontology_extended": {
+      "type": "object"
+    },
+    "ontology_heavy": {
+      "type": "object"
+    }
+  }
+}

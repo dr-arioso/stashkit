@@ -1,0 +1,15 @@
+site_name: StashKit
+theme:
+  name: material
+nav:
+  - Overview: docs/00_Overview.md
+  - Architecture: docs/01_Architecture.md
+  - Dex and LexiDex: docs/02_Dex_and_LexiDex.md
+  - Resolvers: docs/03_Resolvers.md
+  - Skills: docs/04_Skills.md
+  - BoosterPacks: docs/05_BoosterPacks.md
+  - Dex Compiler & Profiles: docs/06_Dex_Compiler_and_Build_Profiles.md
+  - LLM Projections & MetaDex: docs/07_LLM_Projections_MetaDex.md
+  - Signing, Licensing & Watermarks: docs/08_Signing_Licensing_Watermarks.md
+  - Stash: docs/09_Stash.md
+  - API: docs/api/index.md
