@@ -1,0 +1,51 @@
+mudex:
+  schema_version: "1.0"
+  kind: "MuDex"
+  description: >
+    Interpretive binding and enrichment overlay for StashKit.
+    MuDex entries encode local, non-canonical commitments that
+    bind resolved ontological identities to concrete interpretations.
+
+  scope:
+    visibility: local            # local | shared | global (future)
+    owner: user                  # user | system | tool
+    domain: generic              # free-form string (e.g. "booze")
+
+  index:
+    primary_keys:
+      - ontological_ref          # canonical ontology identifier
+    secondary_keys:
+      - external_id              # UPC, ISBN, SKU, etc. (optional)
+
+  entries:
+    - id: string                 # stable MuDex entry ID
+
+      ontological_ref:
+        dex: string              # e.g. "BoozeDex"
+        path: string             # canonical path or identifier
+
+      binding:
+        type: string             # domain-defined (e.g. "product")
+        external_id: string|null # optional stable external identifier
+        label: string|null       # human-readable label
+
+      enrichment:
+        fields:                  # arbitrary structured data
+          key: value             # domain-defined
+        completeness: partial    # partial | complete
+
+      confidence:
+        value: number            # 0.0 – 1.0
+        basis:                   # why this binding is trusted
+          - source: string       # skill name or "user"
+            weight: number       # relative contribution
+
+      provenance:
+        created_by: string       # user / skill / tool
+        created_at: datetime
+        updated_at: datetime|null
+
+      lifecycle:
+        status: active           # active | deprecated | invalid
+        supersedes: string|null  # prior entry ID
+        notes: string|null

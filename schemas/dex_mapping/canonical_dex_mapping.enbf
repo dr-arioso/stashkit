@@ -1,0 +1,48 @@
+artifact.kind = mapping
+mapping.kind = dex_mapping
+
+dex_mapping.id = <mapping_id>
+dex_mapping.name = <mapping_name>
+dex_mapping.version = <mapping_version>
+dex_mapping.status = <provisional|active|deprecated>
+
+# --- Target Dex (required, exact binding) ---
+
+mapped_onto.dex.id = <dex_id>
+mapped_onto.dex.name = <dex_name>
+mapped_onto.dex.version = <dex_version>
+mapped_onto.dex.hash = <sha256_hash>
+
+# --- Mapping mode (mutually exclusive) ---
+
+mapped_from.mode = <internal|external>
+
+# If mapped_from.mode = external, ALL of the following are required.
+# If mapped_from.mode = internal, NONE of the following may appear.
+
+mapped_from.dex.id = <source_dex_id>
+mapped_from.dex.name = <source_dex_name>
+mapped_from.dex.version = <source_dex_version>
+mapped_from.dex.hash = <sha256_hash>
+
+# --- Mapping rules (pure metadata; no ontology extension) ---
+
+# All referenced identifiers MUST match exact ontological names
+# in the mapped Dex(es). No aliases. No inference.
+
+mapping.rule[0].from = <source_node_or_relation>
+mapping.rule[0].onto = <target_node_or_relation>
+mapping.rule[0].type = <correspondence|annotation|heuristic>
+
+mapping.rule[0].weight = <optional_numeric>
+mapping.rule[0].confidence = <optional_enum_or_numeric>
+mapping.rule[0].notes = <optional_human_text>
+
+# --- Constraints (normative for dex_mapping artifacts) ---
+
+mapping.constraints.modify_target_dex = forbidden
+mapping.constraints.add_entities = forbidden
+mapping.constraints.add_relations = forbidden
+
+# Note: mappings MAY affect resolver behavior deterministically (weights, priorities),
+# but MUST NOT change the meaning of Dex entities/relations themselves.

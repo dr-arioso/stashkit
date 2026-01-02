@@ -1,0 +1,237 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://stashkit.io/schemas/mudex/ProductMuDex.schema.json",
+  "title": "ProductMuDex Schema",
+  "description": "ProductMuDex is a specialization of the StashKit MuDex schema for binding ontological end-nodes to concrete physical products.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "mudex"
+  ],
+  "properties": {
+    "mudex": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "kind",
+        "scope",
+        "index",
+        "entries"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "1.0"
+        },
+        "kind": {
+          "const": "MuDex"
+        },
+        "scope": {
+          "type": "object",
+          "required": [
+            "visibility",
+            "owner",
+            "domain"
+          ],
+          "properties": {
+            "visibility": {
+              "type": "string"
+            },
+            "owner": {
+              "type": "string"
+            },
+            "domain": {
+              "type": "string"
+            }
+          }
+        },
+        "index": {
+          "type": "object",
+          "required": [
+            "primary_keys"
+          ],
+          "properties": {
+            "primary_keys": {
+              "type": "array",
+              "items": {
+                "const": "ontological_ref"
+              }
+            },
+            "secondary_keys": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "media_resolver": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "ontological_ref",
+              "binding",
+              "enrichment",
+              "confidence",
+              "provenance",
+              "lifecycle"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "ontological_ref": {
+                "type": "object",
+                "required": [
+                  "dex",
+                  "path"
+                ],
+                "properties": {
+                  "dex": {
+                    "type": "string"
+                  },
+                  "path": {
+                    "type": "string"
+                  }
+                }
+              },
+              "binding": {
+                "type": "object",
+                "required": [
+                  "type"
+                ],
+                "properties": {
+                  "type": {
+                    "const": "product"
+                  },
+                  "external_id": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "label": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              },
+              "enrichment": {
+                "type": "object",
+                "required": [
+                  "fields",
+                  "completeness"
+                ],
+                "properties": {
+                  "fields": {
+                    "type": "object"
+                  },
+                  "completeness": {
+                    "enum": [
+                      "partial",
+                      "complete"
+                    ]
+                  }
+                }
+              },
+              "confidence": {
+                "type": "object",
+                "required": [
+                  "value",
+                  "basis"
+                ],
+                "properties": {
+                  "value": {
+                    "type": "number",
+                    "minimum": 0.0,
+                    "maximum": 1.0
+                  },
+                  "basis": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "source",
+                        "weight"
+                      ],
+                      "properties": {
+                        "source": {
+                          "type": "string"
+                        },
+                        "weight": {
+                          "type": "number",
+                          "minimum": 0.0,
+                          "maximum": 1.0
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "provenance": {
+                "type": "object",
+                "required": [
+                  "created_by",
+                  "created_at"
+                ],
+                "properties": {
+                  "created_by": {
+                    "type": "string"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "updated_at": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time"
+                  }
+                }
+              },
+              "lifecycle": {
+                "type": "object",
+                "required": [
+                  "status"
+                ],
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "active",
+                      "deprecated",
+                      "invalid"
+                    ]
+                  },
+                  "supersedes": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "notes": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

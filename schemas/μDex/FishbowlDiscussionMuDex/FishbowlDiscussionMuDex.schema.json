@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FishbowlDiscussionMuDex",
+  "description": "Schema governing dialogic observation among multiple personas without assigning authority or producing decisions.",
+  "type": "object",
+
+  "properties": {
+    "identity": {
+      "type": "object",
+      "properties": {
+        "canonical_name": { "const": "FishbowlDiscussionMuDex" },
+        "version": { "type": "string" }
+      },
+      "required": ["canonical_name", "version"]
+    },
+
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "persona_source": {
+          "description": "Reference to a PersonaMetaDex or PersonaDescriptorMetaDex.",
+          "type": "string"
+        },
+        "personas": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 2
+        },
+        "artifact_under_review": {
+          "type": "string",
+          "description": "Identifier or description of the artifact being discussed."
+        }
+      },
+      "required": ["persona_source", "personas"]
+    },
+
+    "interaction_mode": {
+      "type": "string",
+      "enum": [
+        "dialogic_observation",
+        "silent_parallel_review",
+        "sequential_commentary"
+      ]
+    },
+
+    "output_constraints": {
+      "type": "object",
+      "properties": {
+        "allowed_outputs": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "questions",
+              "risk_flags",
+              "disagreements",
+              "assumptions",
+              "tensions",
+              "unresolved_issues"
+            ]
+          }
+        },
+        "forbidden_outputs": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "decisions",
+              "recommendations",
+              "verdicts",
+              "instructions"
+            ]
+          }
+        }
+      },
+      "required": ["allowed_outputs", "forbidden_outputs"]
+    },
+
+    "authority_constraints": {
+      "type": "object",
+      "properties": {
+        "no_persona_authority": { "const": true },
+        "no_consensus_required": { "const": true },
+        "human_retains_decision_control": { "const": true }
+      },
+      "required": [
+        "no_persona_authority",
+        "no_consensus_required",
+        "human_retains_decision_control"
+      ]
+    }
+  },
+
+  "required": [
+    "identity",
+    "inputs",
+    "interaction_mode",
+    "output_constraints",
+    "authority_constraints"
+  ]
+}

@@ -1,0 +1,196 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://stashkit.org/schemas/base-metadex-1.0.json",
+  "title": "BaseMetaDex v1.0",
+  "description": "Abstract ontological framework for MetaDex artifacts. Expressive but inert.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "identity",
+    "classification",
+    "boundaries",
+    "non_capabilities",
+    "extensions"
+  ],
+  "properties": {
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "version",
+        "schema_version",
+        "created_at"
+      ],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "version": { "type": "string" },
+        "schema_version": { "type": "string" },
+        "created_at": { "type": "string", "format": "date-time" },
+        "updated_at": { "type": "string", "format": "date-time" },
+        "authors": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "license": { "type": "string" }
+      }
+    },
+    "classification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_type",
+        "artifact_role",
+        "artifact_scope"
+      ],
+      "properties": {
+        "artifact_type": {
+          "type": "string",
+          "description": "Descriptive label only; not an enforced taxonomy."
+        },
+        "artifact_role": {
+          "type": "string",
+          "description": "Descriptive role of the artifact; non-executory."
+        },
+        "artifact_scope": {
+          "type": "string",
+          "description": "Conceptual scope; informational only."
+        }
+      }
+    },
+    "purpose": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "summary": { "type": "string" },
+        "intent": { "type": "string" },
+        "non_goals": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "domain_framing": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "domains": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "assumptions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "exclusions": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "structure": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "entities": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Named conceptual entities; illustrative, non-authoritative."
+        },
+        "relationships": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Named relationships; no formal semantics implied."
+        },
+        "layers": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "modules": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "ref_type",
+          "ref_id"
+        ],
+        "properties": {
+          "ref_type": { "type": "string" },
+          "ref_id": { "type": "string" },
+          "ref_version": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "interoperability_notes": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "observations": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "limitations": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "documentation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "overview": { "type": "string" },
+        "rationale": { "type": "string" },
+        "examples": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "boundaries": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "does_not_define",
+        "does_not_control"
+      ],
+      "properties": {
+        "out_of_scope": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "does_not_define": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "does_not_control": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "non_capabilities": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Explicit declarations of what this MetaDex does not do."
+    },
+    "extensions": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

@@ -1,0 +1,199 @@
+# MetaDex Schemas
+
+This directory contains **schema-level definitions** for **MetaDex artifacts**, which exist for one purpose:
+
+> **To reliably prime large language models (LLMs) by stabilizing their reconstruction of context and preventing default epistemological failure.**
+
+MetaDex schemas define **what kinds of machine-interpretable context artifacts exist** and **what structure they must follow** in order to fulfill that purpose.
+
+All MetaDex artifacts are intentionally:
+
+* **descriptive**, not procedural
+* **non-executory**, not behavioral
+* **machine-interpretable**, not informal documentation
+* **safe to load into LLM context**, without inducing control, authority, or instruction
+
+If a schema in this directory were removed, **no application logic should break**.
+What would degrade is **LLM context fidelity and interpretive stability**.
+
+---
+
+## Core Design Principle (v2.0)
+
+> **MetaDex exists solely to prime LLM interpretation.**
+> Any artifact that does not reliably perturb default LLM reconstruction is *not* a valid MetaDex.
+
+As of **BaseMetaDex v2.0**, this principle is enforced **structurally rather than by convention**.
+
+---
+
+## BaseMetaDex (v2.0)
+
+`base_metadex_v2.0.schema.json`
+
+Defines the **foundational contract** shared by all MetaDex artifacts.
+
+BaseMetaDex v2.0 introduces a **mandatory epistemic core**, reflecting the empirical finding that LLMs will otherwise:
+
+* collapse description into execution
+* infer authority from structure
+* hallucinate procedures from clarity
+
+### BaseMetaDex guarantees that every MetaDex:
+
+* declares its **identity and versioning**
+* states its **interpretive purpose**
+* includes a **constitutive epistemic core** that:
+
+  * defines semantic invariants
+  * blocks known category collapses
+  * names assumption surface areas where default LLM reasoning fails
+
+BaseMetaDex answers the question:
+
+> **“What must be present for an artifact to reliably prime an LLM without context collapse?”**
+
+Anything that does not satisfy this contract is **not** considered a MetaDex under v2.0.
+
+---
+
+## Epistemic Core (Required)
+
+All MetaDex artifacts **must** include an `epistemic_core` consisting of:
+
+* **semantic_invariants**
+  Global truths that must remain valid under adversarial or careless interpretation.
+
+* **non_equivalences**
+  Explicit category boundaries that must not be collapsed (e.g., description ≠ execution).
+
+* **assumption_surface_area**
+  Named pressure points where default LLM assumptions are likely to misfire.
+
+The epistemic core is:
+
+* **constitutive**, not advisory
+* **descriptive**, not procedural
+* **non-authoritative**, yet binding for interpretive validity
+
+Without this core, a MetaDex will predictably fail at its job.
+
+---
+
+## PersonaMetaDex (v2.0)
+
+`PersonaMetaDex_v2.0.schema.json`
+
+Defines the structure for **describing personas as inert interpretive lenses**, not agents.
+
+PersonaMetaDex is used to describe:
+
+* roles (e.g., examiner, in-house counsel, adversarial reviewer)
+* expertise domains
+* incentives and biases
+* explicit boundaries and non-capabilities
+
+### Critically, PersonaMetaDex:
+
+* **inherits BaseMetaDex v2.0**
+* **requires an epistemic core**, because personas are one of the strongest triggers for:
+
+  * authority hallucination
+  * agentification
+  * instruction leakage
+
+PersonaMetaDex **does not**:
+
+* assign authority or priority
+* define interaction procedures
+* cause personas to “speak” or act
+* prescribe how personas are invoked
+
+PersonaMetaDex answers the question:
+
+> **“Who exists in the interpretive landscape, and how should their presence *not* be misunderstood?”**
+
+---
+
+## Relationship to MuDex
+
+**MetaDex describes context.**
+**MuDex governs interpretive transformation.**
+
+* MetaDex **stabilizes interpretation**.
+* MuDex **constrains how interpretation may change across modes, roles, or phases**.
+
+Here, “procedural” (as applied to MuDex) means **defining permissible interpretive transformations**,
+*not* specifying executable steps, control flow, or decision logic.
+
+This separation is intentional and non-negotiable.
+
+PersonaMetaDex describes *what personas are*.
+MuDex artifacts (e.g., FishbowlDiscussionMuDex) describe *how personas may be used*.
+
+Mixing these layers introduces authority leakage and unintended behavior.
+
+---
+
+## When to Add PersonaDescriptorMuDex (and When Not To)
+
+Do **not** introduce PersonaDescriptorMuDex if you only need to:
+
+* describe personas
+* name personas
+* select personas by convention or prompt
+* constrain interpretation using an existing MuDex
+
+Consider adding PersonaDescriptorMuDex **only if** you need to encode **policies about persona usage itself**, such as:
+
+* restricting when a persona may be invoked
+* constraining allowable interaction modes
+* defining persona lifecycle state (active, deprecated, historical)
+* shaping persona outputs independently of interaction mechanics
+
+If you are unsure whether you need PersonaDescriptorMuDex, you almost certainly do not.
+
+---
+
+## Final Design Rule
+
+> **MetaDex describes reality.**
+> **MuDex constrains transformation.**
+> **Authority always remains external.**
+
+If you feel tempted to blur these boundaries, stop — that impulse is the precise failure mode MetaDex v2.0 exists to prevent.
+
+---
+
+## Versioning Note: MetaDex v1.x → v2.0
+
+### What changed in v2.0
+
+MetaDex v2.0 makes epistemic perturbation **structural rather than optional**.
+
+All MetaDex artifacts must now include an `epistemic_core` consisting of:
+
+* semantic invariants
+* non-equivalences
+* assumption surface areas
+
+These elements are **constitutive**:
+
+* if they are absent, the artifact is not a valid MetaDex
+* correctness no longer depends on implicit model interpretation
+
+### What did *not* change
+
+* MetaDex remains descriptive and non-executory
+* MetaDex does not assert authority or control behavior
+* MetaDex does not replace prompts or MuDex
+* Existing MetaDex concepts remain valid, but must be re-expressed through the epistemic core
+
+### Relationship to MuDex
+
+This change does **not** alter MuDex.
+
+* MetaDex stabilizes interpretation
+* MuDex governs allowed transformations
+
+The two layers remain intentionally separate.

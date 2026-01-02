@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://stashkit.io/schemas/metadex/UserProfileMetaDex.schema.json",
+  "title": "UserProfileMetaDex Schema",
+  "description": "Schema for MetaDex artifacts that encode interaction preferences and collaboration ergonomics for a user.",
+  "type": "object",
+  "required": [
+    "identity",
+    "classification",
+    "purpose",
+    "engagement_profile"
+  ],
+  "properties": {
+    "identity": {
+      "type": "object"
+    },
+    "classification": {
+      "type": "object"
+    },
+    "purpose": {
+      "type": "object"
+    },
+    "epistemic_core": {
+      "type": "object"
+    },
+    "engagement_profile": {
+      "type": "object"
+    },
+    "output_preferences": {
+      "type": "object"
+    },
+    "interaction_control": {
+      "type": "object"
+    },
+    "explanation_style": {
+      "type": "object"
+    },
+    "tone_and_register": {
+      "type": "object"
+    },
+    "risk_posture": {
+      "type": "object"
+    },
+    "communication_shims": {
+      "type": "object"
+    },
+    "revision_policy": {
+      "type": "object"
+    }
+  }
+}

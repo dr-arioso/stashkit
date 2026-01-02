@@ -1,0 +1,93 @@
+# BaseMetaDex Contract (v2.0)
+#
+# Purpose
+# - BaseMetaDex defines the minimum machine-interpretable structure for MetaDex artifacts.
+# - MetaDex has one primary purpose: PRIME LLM RECONSTRUCTION of a described system/Dex by perturbing default
+#   epistemological assumptions that would otherwise cause context-collapse.
+#
+# Design posture
+# - Descriptive only (no procedures, no "do X if Y", no priority/override rules).
+# - The epistemic_core is CONSTITUTIVE: if it is absent, the artifact is not a valid MetaDex.
+#
+# REQUIRED TOP-LEVEL FIELDS
+required:
+  - identity
+  - classification
+  - purpose
+  - epistemic_core
+
+identity:
+  required:
+    - name
+    - version
+    - schema_version
+  notes:
+    - schema_version MUST equal "BaseMetaDex-2.0"
+
+classification:
+  required:
+    - artifact_type
+    - artifact_role
+    - artifact_scope
+  constraints:
+    artifact_type: "MetaDex"
+    artifact_role: "descriptive"
+    artifact_scope: "conceptual"
+
+purpose:
+  required:
+    - summary
+    - intent
+  optional:
+    - non_goals
+
+epistemic_contract:
+  optional: true
+  intent: >
+    Declarative statement of interpretive validity expectations.
+    Avoid procedures; keep this as definitions of validity, not instructions.
+  suggested_defaults:
+    role: "interpretive_precondition"
+    interpretation_validity: "requires_epistemic_core"
+
+epistemic_core:
+  required:
+    - semantic_invariants
+    - non_equivalences
+    - assumption_surface_area
+  notes:
+    - These three are the minimal epistemic core proven necessary to perturb default LLM reconstruction.
+    - Keep entries short, high-signal, and globally applicable.
+    - Do NOT add execution semantics, decision authority, or override language here.
+
+  semantic_invariants:
+    min_items: 1
+    guidance:
+      - Write global truths that remain valid even under adversarial misreading.
+      - Examples (adapt as needed):
+        - "This artifact is descriptive only and does not execute, instruct, or control behavior."
+        - "Interpretive influence does not imply authority or obligation."
+        - "Human judgment remains external and authoritative."
+
+  non_equivalences:
+    min_items: 1
+    item_shape:
+      not_equivalent: ["<concept A>", "<concept B>", "..."]
+      rationale: "<optional>"
+      risk_of_conflation: "<optional>"
+    guidance:
+      - Use to block the most common category errors (e.g., description≠execution, structure≠procedure).
+
+  assumption_surface_area:
+    min_items: 1
+    item_shape:
+      assumption: "<default assumption likely to be made>"
+      risk: "<how it breaks reconstruction>"
+      examples: ["<optional example>", "..."]
+    guidance:
+      - Name where the model tends to 'auto-complete' the wrong mental model.
+
+extensions:
+  optional: true
+  guidance:
+    - Extensions must remain descriptive and must not introduce procedures or priority/override rules.

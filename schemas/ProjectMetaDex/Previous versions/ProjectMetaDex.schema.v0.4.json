@@ -1,0 +1,93 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ProjectMetaDex",
+  "description": "Descriptive metadata artifact capturing architectural, computational, and semantic invariants for a project.",
+  "type": "object",
+  "required": [
+    "metadex_type",
+    "schema_version",
+    "project_identity",
+    "project_purpose"
+  ],
+  "properties": {
+    "metadex_type": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "project_identity": {
+      "type": "string"
+    },
+    "project_purpose": {
+      "type": "string"
+    },
+    "computational_model": {
+      "type": "object",
+      "properties": {
+        "affirmative": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "explicitly_not": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "interpretive_note": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "explicit_invariants": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "architectural_constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "semantic_naming_conventions": {
+      "type": "object",
+      "properties": {
+        "purpose": {
+          "type": "string"
+        },
+        "principles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "recommended_patterns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "dual_surface_naming": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "directionality": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

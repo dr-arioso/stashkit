@@ -1,0 +1,37 @@
+{
+  "schema_name": "ProjectMetaDex",
+  "schema_version": "0.2",
+  "description": "Explicit project-level context describing purpose, architectural constraints, and implementation direction.",
+  "required_fields": [
+    "metadex_type",
+    "schema_version",
+    "project_identity",
+    "project_purpose"
+  ],
+  "optional_fields": [
+    "architectural_constraints",
+    "implementation_direction",
+    "domain_conventions",
+    "explicit_invariants",
+    "non_goals",
+    "decision_record"
+  ],
+  "field_descriptions": {
+    "metadex_type": "Must be 'ProjectMetaDex'.",
+    "schema_version": "Version of the ProjectMetaDex schema.",
+    "project_identity": "Name or identifier of the project.",
+    "project_purpose": "What the project exists to do.",
+    "architectural_constraints": "Structural commitments and boundaries that must not be violated.",
+    "implementation_direction": "Preferred approaches within the architectural constraints.",
+    "domain_conventions": "Language-, framework-, or domain-specific conventions to follow.",
+    "explicit_invariants": "Rules that remain binding unless explicitly reopened.",
+    "non_goals": "Explicitly out-of-scope concerns.",
+    "decision_record": "Optional record of key architectural decisions and their rationale."
+  },
+  "decision_record_schema": {
+    "decision": "Short description of the decision.",
+    "status": "binding | provisional",
+    "rationale": "Why the decision was made.",
+    "date": "ISO-8601 date string"
+  }
+}

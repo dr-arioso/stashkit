@@ -1,0 +1,118 @@
+# GrounDex Schema
+# Canonical behavioral configuration and optimization schema
+# Fully optional, descriptive, and additive
+
+groundex:
+  version: "1.0"
+
+  sampling_controls:
+    temperature:
+      type: number
+      semantics: Controls randomness of generation
+    top_p:
+      type: number
+      semantics: Nucleus sampling threshold
+
+  decoding_controls:
+    stop_sequences:
+      type: list
+      semantics: Sequences that terminate generation
+
+  structured_output:
+    schema_definition:
+      type: object
+      semantics: Structured output constraints
+
+  safety_controls:
+    tier:
+      type: string
+      semantics: Safety policy tier
+
+  reasoning_controls:
+    depth:
+      type: string
+      semantics: Degree of reasoning verbosity
+
+  modality_controls:
+    vision_enabled:
+      type: boolean
+    audio_enabled:
+      type: boolean
+
+  optimization:
+    semantics: >
+      Describes how canonical behavioral configuration may be refined,
+      reconciled, or stabilized prior to vendor-specific translation.
+    overlays:
+      semantics: >
+        One or more overlay specifications that modify or constrain
+        canonical behavioral configuration.
+    overlay_harmonization:
+      semantics: >
+        Acknowledges reconciliation of multiple overlays that may
+        conflict or complement one another.
+    harmonization_strategy:
+      semantics: >
+        Descriptive intent for how overlay reconciliation may be
+        interpreted (e.g., precedence-based, weighted, heuristic).
+    iterative:
+      semantics: >
+        Indicates that optimization may be iterative or adaptive over time.
+
+  behavioral_control:
+    semantics: >
+      Describes how optimized behavioral configuration may be expressed
+      as control signals applied to a generative inference system.
+    signals:
+      semantics: >
+        Declares heterogeneous control channels that may be used in
+        combination or substitution.
+    parameter:
+      semantics: >
+        Parameter-based behavioral control signals.
+    prompt:
+      semantics: >
+        Prompt- or context-based behavioral control signals, including
+        system instructions or structured context.
+    composition:
+      semantics: >
+        Indicates that multiple control signals may be composed to
+        achieve a target behavioral effect.
+
+  monitoring:
+    semantics: >
+      Describes runtime observation of generative inference behavior and
+      potential stabilization actions.
+    behavioral_indicators:
+      semantics: >
+        Derived signals indicating behavioral characteristics or
+        deviation, such as variance or compliance.
+    drift_detection:
+      semantics: >
+        Logic acknowledging detection of behavioral drift relative to
+        expected behavior.
+    correction_policy:
+      semantics: >
+        Describes how corrective adjustments may be applied when drift
+        is detected.
+    adaptive:
+      semantics: >
+        Indicates that monitoring or correction may adapt based on
+        observed behavior.
+
+  model_scope:
+    semantics: >
+      Declares the intended scope of application for a behavioral
+      configuration.
+    mode:
+      semantics: >
+        Descriptive intent for application mode (single-model,
+        multi-model, ensemble).
+    substitution:
+      semantics: >
+        Indicates intent to support substitution of one model for
+        another while preserving behavioral equivalence.
+    ensemble:
+      semantics: >
+        Indicates intent to apply configuration across multiple models
+        concurrently.

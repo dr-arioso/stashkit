@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PersonaMetaDex",
+  "description": "Abstract schema for describing personas as inert interpretive entities without authority or execution.",
+  "type": "object",
+  "properties": {
+    "identity": {
+      "type": "object",
+      "properties": {
+        "canonical_name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "canonical_name",
+        "version"
+      ]
+    },
+    "purpose": {
+      "type": "object",
+      "properties": {
+        "summary": {
+          "type": "string"
+        },
+        "non_goals": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "personas": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "classification": {
+            "type": "object"
+          },
+          "traits": {
+            "type": "object"
+          },
+          "incentives": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "biases": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "non_capabilities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "classification",
+          "non_capabilities"
+        ]
+      }
+    },
+    "constraints": {
+      "type": "object",
+      "properties": {
+        "descriptive_only": {
+          "const": true
+        },
+        "no_execution": {
+          "const": true
+        },
+        "no_authority_assignment": {
+          "const": true
+        }
+      },
+      "required": [
+        "descriptive_only",
+        "no_execution",
+        "no_authority_assignment"
+      ]
+    }
+  },
+  "required": [
+    "identity",
+    "personas",
+    "constraints"
+  ]
+}

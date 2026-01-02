@@ -1,0 +1,185 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ProjectMetaDex",
+  "description": "Descriptive metadata artifact capturing architectural, computational, and semantic invariants for a project.",
+  "type": "object",
+  "required": [
+    "metadex_type",
+    "schema_version",
+    "project_identity",
+    "project_purpose"
+  ],
+  "properties": {
+    "metadex_type": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "project_identity": {
+      "type": "string"
+    },
+    "project_purpose": {
+      "type": "string"
+    },
+    "computational_model": {
+      "type": "object",
+      "properties": {
+        "affirmative": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "explicitly_not": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "interpretive_note": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "explicit_invariants": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "architectural_constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "semantic_naming_conventions": {
+      "type": "object",
+      "properties": {
+        "purpose": {
+          "type": "string"
+        },
+        "principles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "recommended_patterns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "dual_surface_naming": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "directionality": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "interaction_semantics": {
+      "type": "object",
+      "description": "Declarative, non-executing semantics describing intended snapshot capture, state rehydration, and interaction-quality observation when this ProjectMetaDex is used as contextual input.",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Version of the interaction semantics contract."
+        },
+        "snapshot_semantics": {
+          "type": "object",
+          "description": "Defines the intended meaning and constraints of a snapshot request for this project.",
+          "properties": {
+            "trigger": {
+              "type": "string",
+              "description": "Declared trigger token indicating a request for authoritative project state capture (e.g., /snapshot)."
+            },
+            "required_state_fields": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "State fields that must be populated during snapshot capture."
+            },
+            "capture_rules": {
+              "type": "object",
+              "description": "Interpretive constraints applied during snapshot capture.",
+              "additionalProperties": {
+                "type": "boolean"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "rehydration_semantics": {
+          "type": "object",
+          "description": "Describes how project state is intended to be reinstated when this ProjectMetaDex is loaded.",
+          "properties": {
+            "authoritative_sections": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "confirmation_scope": {
+              "type": "string",
+              "description": "Section or field that should be explicitly confirmed before proceeding."
+            },
+            "intended_next_action": {
+              "type": "string",
+              "description": "Declarative reference to the intended next objective or action."
+            }
+          },
+          "additionalProperties": false
+        },
+        "self_monitoring_semantics": {
+          "type": "object",
+          "description": "Declarative descriptions of interaction-quality degradation patterns and intended stabilizing responses.",
+          "properties": {
+            "monitored_conditions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "condition_id": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "indicators": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "recommended_interpretive_response": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "condition_id",
+                  "description"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

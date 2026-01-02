@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   sodipodi:docname="Infraliminal_src.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="398.45467"
+     inkscape:cy="539.16892"
+     inkscape:window-width="2560"
+     inkscape:window-height="1417"
+     inkscape:window-x="-8"
+     inkscape:window-y="282"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Background">
+    <rect
+       style="fill:#fff6d5;fill-opacity:1;stroke-width:0.264583"
+       id="rect4"
+       width="181.10184"
+       height="77.080536"
+       x="23.164223"
+       y="88.793633"
+       ry="0.28063291" />
+  </g>
+  <g
+     inkscape:label="Text"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:25.4px;font-family:Cambria;-inkscape-font-specification:Cambria;text-align:start;letter-spacing:-1.66688px;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#1f405a;stroke-width:0.264583"
+       x="46.199997"
+       y="134.93333"
+       id="text1"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Eras Medium ITC';-inkscape-font-specification:'Eras Medium ITC';letter-spacing:-1.66688px;fill:#667999;fill-opacity:1;stroke-width:0.264583"
+         x="46.199997"
+         y="134.93333"
+         dy="0 0 0 0.023386084 0 0 0 0 0 0 0 0 0 -2.432153 2.6192417"
+         dx="0 -0.74835467 -0.18708867 -0.0082682287 0 -0.56126601 -0.56126601 0 -0.37417734 -0.37417734 0 -0.56126601 0 1.3096207 -3.7417741"><tspan
+           style="fill:#5d6f8c;fill-opacity:1"
+           id="tspan3"
+           dx="0 -1.122532 -0.56126601 0 -0.37417734">Infra</tspan><tspan
+           style="fill:#1f405a;fill-opacity:1"
+           id="tspan2"
+           dx="-1.122532">l</tspan><tspan
+           style="fill:#5d6f8c;fill-opacity:1"
+           id="tspan4"
+           dx="-1.122532 -0.93544334 -0.93544334 -0.74835467 -0.18708867 -1.122532">iminal /src</tspan></tspan></text>
+  </g>
+</svg>

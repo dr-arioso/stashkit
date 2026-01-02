@@ -1,0 +1,60 @@
+BaseMetaDex:
+  posture: expressive-but-inert
+  intent:
+    - define allowable descriptive information
+    - prohibit execution, inference, and control
+
+  identity:
+    purpose: Artifact identity and provenance
+    authority: informational only
+
+  classification:
+    purpose: High-level descriptive labeling
+    warning: Not a taxonomy; do not infer behavior or capability
+
+  purpose:
+    summary: Why the artifact exists
+    intent: Descriptive framing only
+    non_goals: Explicit exclusions
+
+  domain_framing:
+    domains: Conceptual areas addressed
+    assumptions: Declared premises
+    exclusions: Declared omissions
+
+  structure:
+    entities: Named conceptual components
+    relationships: Named conceptual relationships
+    note: Illustrative only; no formal semantics
+
+  references:
+    purpose: Acknowledge external artifacts
+    constraint: No authority transfer
+
+  interoperability_notes:
+    purpose: Observations about interaction with other systems
+    constraint: Non-binding, non-normative
+
+  documentation:
+    overview: High-level explanation
+    rationale: Design reasoning
+    examples: Non-executable illustrations
+    notes: Free-form commentary
+
+  boundaries:
+    required:
+      - does_not_define
+      - does_not_control
+    purpose: Explicit guardrails
+
+  non_capabilities:
+    purpose: Redundant, explicit prohibitions
+    examples:
+      - no execution
+      - no inference
+      - no optimization
+      - no transformation
+
+  extensions:
+    purpose: Reserved for future expansion
+    behavior: Ignored by BaseMetaDex

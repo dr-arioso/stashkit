@@ -1,0 +1,62 @@
+{
+  "identity": {
+    "id": "user.bill.profile.metadex.v1",
+    "name": "Bill UserProfile MetaDex",
+    "version": "1.0",
+    "created_at": "2025-12-15T18:55:24.786837Z",
+    "status": "active"
+  },
+  "classification": {
+    "artifact_type": "MetaDex",
+    "artifact_scope": "user-profile"
+  },
+  "purpose": {
+    "summary": "Prime interaction with Bill for effective long-form collaboration and artifact-driven work."
+  },
+  "engagement_profile": {
+    "common_use_cases": [
+      "extended_project_multi_session",
+      "brainstorming/ideation",
+      "editing/rewrite"
+    ],
+    "typical_session_shape": {
+      "length": "long",
+      "depth": "high",
+      "cadence": "thoughtful_turns"
+    },
+    "project_continuity": {
+      "prefers_continuity": true,
+      "uses_priming_artifacts": true
+    }
+  },
+  "output_preferences": {
+    "default_format": "mixed",
+    "prefers_downloadable_files": true,
+    "patching_policy": {
+      "prefers_full_regeneration": true,
+      "patch_ok_when": "small change in known location"
+    }
+  },
+  "explanation_style": {
+    "preferred_lens_order": [
+      "convention/idiom",
+      "heuristic/pragmatic",
+      "structural/formal"
+    ],
+    "wants_rationale": "high"
+  },
+  "communication_shims": {
+    "avoid_assuming": [
+      "hedged language implies uncertainty",
+      "questions imply rejection"
+    ],
+    "interpret_as": [
+      "hedging may be invitational",
+      "edge-case probing may be engagement"
+    ]
+  },
+  "revision_policy": {
+    "review_interval": "misalignment-triggered",
+    "revision_authority": "user"
+  }
+}
