@@ -1,12 +1,12 @@
-# MetaDex Schemas
+# StashDex Schemas
 
 This directory contains **schema-level definitions** for different types of **StashDex artifacts**, which exist for one purpose:
 
 > **To reliably prime large language models (LLMs) by stabilizing their reconstruction of context and preventing default epistemological failure.**
 
-MetaDex schemas define **what kinds of machine-interpretable context artifacts exist** and **what structure they must follow** in order to fulfill that purpose.
+StashDex (a.k.a. Dex) schemas define **what kinds of machine-interpretable context artifacts exist** and **what structure they must follow** in order to fulfill that purpose.
 
-All MetaDex artifacts are intentionally:
+All Dex artifacts are intentionally:
 
 * **descriptive**, not procedural
 * **non-executory**, not behavioral
@@ -18,9 +18,9 @@ What would degrade is **LLM context fidelity and interpretive stability**.
 
 ---
 
-## Core Design Principle (v2.0)
+## Core Design Principle
 
-> **MetaDex exists solely to prime LLM interpretation.**
+> **Dexes types exists solely to prime LLM interpretation.**
 > Any artifact that does not reliably perturb default LLM reconstruction is *not* a valid MetaDex.
 
 As of **BaseMetaDex v2.0**, this principle is enforced **structurally rather than by convention**.

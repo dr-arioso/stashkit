@@ -10,7 +10,7 @@ It separates *what things are* from *how we figure them out* and from *where ide
 
 ## TL;DR
 
-* **Ontology**: what exists (Dexes, schemas, relationships)
+* **Ontology**: what exists (StashDexes, schemas, relationships)
 * **Ontogeny**: how identity is resolved (Resolvers + Strategies + Skills)
 * **Identity & Storage**: what is considered resolved and where it is kept (Stash)
 
@@ -39,9 +39,9 @@ flowchart LR
 
 ---
 
-## Ontology (Dexes)
+## Ontology (StashDexes)
 
-**Dexes** define the *conceptual space* a system operates in.
+**StashDexes** (also **Dexes**) define the *conceptual space* a system operates in.
 
 A Dex describes:
 

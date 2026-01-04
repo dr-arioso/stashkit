@@ -2,7 +2,7 @@
 
 StashKit is a semantic interpretation framework for Python.
 
-You give it messy inputs (text, images, barcodes, logs, whatever) plus a **Dex** that describes your domain.
+You give it messy inputs (text, images, barcodes, logs, whatever) plus a **StashDex** (or just **Dex**) that describes your domain.
 StashKit coordinates **Resolvers** and **Skills** to turn those inputs into clean, structured entities.
 
 ```mermaid
